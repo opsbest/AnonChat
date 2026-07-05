@@ -10,9 +10,8 @@ let myCallsign = null;
 let onlineUsers = [];
 let typingTimeout = null;
 
-// ---- Mention (etiketleme) dropdown durumu ---------------------------------
-let mentionActive = false;   // şu an "@" yazıp isim aratıyor muyuz
-let mentionStart = -1;       // input içindeki "@" karakterinin index'i
+let mentionActive = false;
+let mentionStart = -1;
 let mentionMatches = [];
 let mentionHighlight = 0;
 
@@ -33,8 +32,6 @@ function appendSystem(text) {
   scrollToBottom();
 }
 
-// Mesaj metnini güvenli şekilde DOM'a basar; "@isim" geçen kısımları
-// ayrı bir span ile vurgular. innerHTML kullanılmadığı için XSS riski yok.
 function renderMessageBody(container, text) {
   const mentionRegex = /(^|\s)(@[A-Za-z0-9_-]+)/g;
   let lastIndex = 0;
@@ -129,7 +126,6 @@ function sendMessage() {
 
 sendBtn.addEventListener('click', sendMessage);
 
-// ---- @ ile kullanıcı etiketleme --------------------------------------------
 
 function closeMentionList() {
   mentionActive = false;
@@ -189,7 +185,6 @@ function checkMentionTrigger() {
   }
 
   const between = value.slice(atIndex + 1);
-  // "@" ile aramanın arasında boşluk varsa artık etiketleme modunda değiliz
   if (/\s/.test(between)) {
     closeMentionList();
     return;
@@ -237,7 +232,6 @@ inputEl.addEventListener('keydown', (e) => {
 });
 
 inputEl.addEventListener('blur', () => {
-  // Listeye tıklanabilmesi için kapatmayı bir tık geciktiriyoruz
   setTimeout(closeMentionList, 100);
 });
 
