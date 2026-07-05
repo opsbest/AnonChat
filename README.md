@@ -18,7 +18,7 @@
 > ## Setup
 > 
 > - Download the project (or clone it with `git clone`)
-> - Go into the folder: `cd anon-chat`
+> - Go into the folder: `cd (File Name)`
 > - Install the packages: `npm install`
 > - Start the server: `npm start`
 > - Open `http://localhost:3000` in your browser
