@@ -15,6 +15,14 @@
 
 </div>
 
+> [!WARNING]
+> ## Moderation Notice
+> 
+> - This chat has **no moderation, filtering, or content review** — anything posted is fully the responsibility of the person who wrote it.
+> - Everyone is **fully anonymous** — there's no way to verify who's behind any message.
+> - This project is a demo/portfolio piece, not intended for production use.
+> - Use the live demo at your own discretion.
+
 > [!IMPORTANT]
 > ## Setup
 > 
