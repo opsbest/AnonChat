@@ -8,7 +8,6 @@ const mentionListEl = document.getElementById('mention-list');
 
 let myCallsign = null;
 let onlineUsers = [];
-let typingTimeout = null;
 
 let mentionActive = false;
 let mentionStart = -1;
@@ -38,7 +37,7 @@ function renderMessageBody(container, text) {
   let match;
 
   while ((match = mentionRegex.exec(text)) !== null) {
-    const [full, lead, tag] = match;
+    const [, lead, tag] = match;
     const start = match.index + lead.length;
 
     if (start > lastIndex) {
@@ -120,7 +119,6 @@ function sendMessage() {
   if (!text) return;
   socket.emit('chat message', { text });
   inputEl.value = '';
-  socket.emit('typing', false);
   closeMentionList();
 }
 
@@ -196,9 +194,6 @@ function checkMentionTrigger() {
 
 inputEl.addEventListener('input', () => {
   checkMentionTrigger();
-  socket.emit('typing', true);
-  clearTimeout(typingTimeout);
-  typingTimeout = setTimeout(() => socket.emit('typing', false), 1500);
 });
 
 inputEl.addEventListener('keydown', (e) => {
@@ -253,8 +248,4 @@ themeToggleBtn.addEventListener('click', () => {
   const next = current === 'light' ? 'dark' : 'light';
   applyTheme(next);
   localStorage.setItem('theme', next);
-
-  themeToggleBtn.classList.remove('spin');
-  void themeToggleBtn.offsetWidth;
-  themeToggleBtn.classList.add('spin');
 });
