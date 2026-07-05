@@ -236,3 +236,25 @@ inputEl.addEventListener('blur', () => {
 });
 
 inputEl.focus();
+
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = themeToggleBtn.querySelector('.theme-icon');
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  themeIcon.textContent = theme === 'light' ? '☀️' : '🌙';
+}
+
+const savedTheme = localStorage.getItem('theme') || 'dark';
+applyTheme(savedTheme);
+
+themeToggleBtn.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  const next = current === 'light' ? 'dark' : 'light';
+  applyTheme(next);
+  localStorage.setItem('theme', next);
+
+  themeToggleBtn.classList.remove('spin');
+  void themeToggleBtn.offsetWidth;
+  themeToggleBtn.classList.add('spin');
+});
