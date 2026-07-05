@@ -63,13 +63,11 @@ body {
     animation: fadeIn 0.15s ease-out;
 }
 
-/* Kendi gönderdiğin mesajlar hafifçe ayırt edilsin */
 .texttt.own {
     border-color: #2a2a55;
     background-color: #0a0a20;
 }
 
-/* Sana @ ile etiketlenen mesajlar öne çıksın */
 .texttt.mentioned {
     border-color: #7c5cff;
     box-shadow: 0 0 0 1px #7c5cff inset;
@@ -98,7 +96,6 @@ body {
     word-break: break-word;
 }
 
-/* Mesaj içindeki @kullanıcı etiketleri */
 .mention-tag {
     color: #9b8cff;
     font-weight: 600;
@@ -142,7 +139,6 @@ body {
     flex-shrink: 0;
 }
 
-/* @ ile yazmaya başlayınca açılan kullanıcı etiketleme listesi */
 .mention-list {
     position: fixed;
     bottom: 78px;
