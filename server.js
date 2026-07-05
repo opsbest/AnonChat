@@ -36,7 +36,7 @@ io.on('connection', (socket) => {
   socket.emit('welcome', { callsign });
   io.emit('presence', { onlineCount: onlineUsers.size });
   broadcastUserList();
-  socket.broadcast.emit('system', { text: `${callsign} kanala katıldı.` });
+  socket.broadcast.emit('system', { text: `${callsign} joined the channel.` });
 
   socket.on('chat message', (payload) => {
     if (!payload || typeof payload.text !== 'string') return;
@@ -62,10 +62,10 @@ io.on('connection', (socket) => {
     onlineUsers.delete(socket.id);
     io.emit('presence', { onlineCount: onlineUsers.size });
     broadcastUserList();
-    io.emit('system', { text: `${callsign} kanaldan ayrıldı.` });
+    io.emit('system', { text: `${callsign} left the channel.` });
   });
 });
 
 server.listen(PORT, () => {
-  console.log(`anon-chat sunucusu http://localhost:${PORT} adresinde çalışıyor`);
+  console.log(`anon-chat server running at http://localhost:${PORT}`);
 });
