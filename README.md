@@ -31,15 +31,11 @@
 > - Install the packages: `npm install`
 > - Start the server: `npm start`
 > - Open `http://localhost:3000` in your browser
-
-> [!TIP]
 > ## About the Project
 > 
 > - This is a no-signup, anonymous chat app.
 > - Messages are never stored — the history clears when you refresh the page.
 > - You're free to use, change, and build on this project however you like (MIT License).
-
-> [!NOTE]
 > ## Features
 > 
 > - No signup, no login
