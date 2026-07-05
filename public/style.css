@@ -1,0 +1,178 @@
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+* {
+    font-family: 'poppins';
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #04040f;
+    overflow: hidden;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #04040f;
+    border-bottom: 1px solid #11112e;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.navbar-content-2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.online-ico {
+    height: 10px;
+    width: 10px;
+    border: 5px solid #0a6416;
+    border-radius: 999px;
+    background-color: #209630;
+}
+
+.text-example {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.text-example::-webkit-scrollbar { width: 8px; }
+.text-example::-webkit-scrollbar-thumb { background: #11112e; border-radius: 999px; }
+.text-example::-webkit-scrollbar-track { background: transparent; }
+
+.texttt {
+    border: 1px solid #11112e;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeIn 0.15s ease-out;
+}
+
+/* Kendi gönderdiğin mesajlar hafifçe ayırt edilsin */
+.texttt.own {
+    border-color: #2a2a55;
+    background-color: #0a0a20;
+}
+
+/* Sana @ ile etiketlenen mesajlar öne çıksın */
+.texttt.mentioned {
+    border-color: #7c5cff;
+    box-shadow: 0 0 0 1px #7c5cff inset;
+}
+
+.date {
+    font-style: italic;
+    color: #585858;
+    white-space: nowrap;
+}
+
+.username {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.text-all {
+    color: #acacac;
+    word-break: break-word;
+    flex: 1;
+    min-width: 0;
+}
+
+.text-all {
+    color: #acacac;
+    word-break: break-word;
+}
+
+/* Mesaj içindeki @kullanıcı etiketleri */
+.mention-tag {
+    color: #9b8cff;
+    font-weight: 600;
+}
+
+.sys-msg {
+    text-align: center;
+    color: #585858;
+    font-size: 13px;
+}
+
+.text-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.text-content input {
+    width: 100%;
+    padding: 10px;
+    background-color: #04040f;
+    border: 1px solid #11112e;
+    border-radius: 10px;
+}
+
+.text-content input:focus {
+    outline: none;
+    border-color: #7c5cff;
+}
+
+.text-content button {
+    border: none;
+    background-color: #FFFF;
+    color: #000;
+    border-radius: 10px;
+    padding: 10px 25px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* @ ile yazmaya başlayınca açılan kullanıcı etiketleme listesi */
+.mention-list {
+    position: fixed;
+    bottom: 78px;
+    left: 20px;
+    right: 20px;
+    max-width: 400px;
+    background-color: #0a0a20;
+    border: 1px solid #11112e;
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+    z-index: 10;
+}
+
+.mention-list.open { display: block; }
+
+.mention-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #acacac;
+    font-size: 14px;
+}
+
+.mention-item:hover,
+.mention-item.active {
+    background-color: #11112e;
+    color: #fff;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "anon-chat",
+  "version": "1.0.0",
+  "description": "Kayıt gerektirmeyen, tamamen anonim, tek odalı gerçek zamanlı sohbet uygulaması. Mesajlar sunucuda saklanmaz; sayfa yenilendiğinde geçmişiniz sıfırlanır.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "chat",
+    "anonymous",
+    "realtime",
+    "socket.io",
+    "no-signup"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
