@@ -16,7 +16,7 @@ const CALLSIGN_WORDS = [
 
 function generateCallsign() {
   const word = CALLSIGN_WORDS[Math.floor(Math.random() * CALLSIGN_WORDS.length)];
-  const number = Math.floor(Math.random() * 90) + 10;
+  const number = Math.floor(Math.random() * 9000) + 1000;
   return `${word}-${number}`;
 }
 
