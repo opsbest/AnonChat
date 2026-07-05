@@ -1,10 +1,38 @@
 @import url('https://fonts.cdnfonts.com/css/poppins');
 
+:root {
+    --bg-color: #04040f;
+    --border-color: #11112e;
+    --text-secondary: #acacac;
+    --text-dim: #585858;
+    --input-bg: #04040f;
+    --btn-bg: #ffffff;
+    --btn-color: #000000;
+    --mention-color: #9b8cff;
+    --own-border: #2a2a55;
+    --own-bg: #0a0a20;
+    --text-main: #fff;
+}
+
+[data-theme="light"] {
+    --bg-color: #f4f4fa;
+    --border-color: #dcdce8;
+    --text-secondary: #444444;
+    --text-dim: #888888;
+    --input-bg: #ffffff;
+    --btn-bg: #111111;
+    --btn-color: #ffffff;
+    --mention-color: #6f4fff;
+    --own-border: #c9c9f0;
+    --own-bg: #eaeaff;
+    --text-main: #111;
+}
+
 * {
     font-family: 'poppins';
     margin: 0;
     padding: 0;
-    color: #fff;
+    color: var(--text-main);
 }
 
 body {
@@ -12,32 +40,34 @@ body {
     flex-direction: column;
     height: 100vh;
     height: 100dvh;
-    background-color: #04040f;
+    background-color: var(--bg-color);
     overflow: hidden;
+    transition: background-color 0.3s ease;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #04040f;
-    border-bottom: 1px solid #11112e;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
     padding: 20px;
     flex-shrink: 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar-content-2 {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px; /* 15px'ten 20px'e çıkardım, çok hafif açıldı */
 }
 
 .online-ico {
     height: 10px;
     width: 10px;
-    border: 5px solid #0a6416;
     border-radius: 999px;
-    background-color: #209630;
+    background-color: #23c552;
+    box-shadow: 0 0 0px 4px var(--surface-bg, #0a940a);
 }
 
 .text-example {
@@ -51,22 +81,23 @@ body {
 }
 
 .text-example::-webkit-scrollbar { width: 8px; }
-.text-example::-webkit-scrollbar-thumb { background: #11112e; border-radius: 999px; }
+.text-example::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 999px; }
 .text-example::-webkit-scrollbar-track { background: transparent; }
 
 .texttt {
-    border: 1px solid #11112e;
+    border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 20px;
     border-radius: 10px;
     animation: fadeIn 0.15s ease-out;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .texttt.own {
-    border-color: #2a2a55;
-    background-color: #0a0a20;
+    border-color: var(--own-border);
+    background-color: var(--own-bg);
 }
 
 .texttt.mentioned {
@@ -76,7 +107,7 @@ body {
 
 .date {
     font-style: italic;
-    color: #585858;
+    color: var(--text-dim);
     white-space: nowrap;
 }
 
@@ -86,25 +117,20 @@ body {
 }
 
 .text-all {
-    color: #acacac;
+    color: var(--text-secondary);
     word-break: break-word;
     flex: 1;
     min-width: 0;
 }
 
-.text-all {
-    color: #acacac;
-    word-break: break-word;
-}
-
 .mention-tag {
-    color: #9b8cff;
+    color: var(--mention-color);
     font-weight: 600;
 }
 
 .sys-msg {
     text-align: center;
-    color: #585858;
+    color: var(--text-dim);
     font-size: 13px;
 }
 
@@ -120,9 +146,10 @@ body {
 .text-content input {
     width: 100%;
     padding: 10px;
-    background-color: #04040f;
-    border: 1px solid #11112e;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .text-content input:focus {
@@ -132,12 +159,13 @@ body {
 
 .text-content button {
     border: none;
-    background-color: #FFFF;
-    color: #000;
+    background-color: var(--btn-bg);
+    color: var(--btn-color);
     border-radius: 10px;
     padding: 10px 25px;
     cursor: pointer;
     flex-shrink: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .mention-list {
@@ -146,8 +174,8 @@ body {
     left: 20px;
     right: 20px;
     max-width: 400px;
-    background-color: #0a0a20;
-    border: 1px solid #11112e;
+    background-color: var(--own-bg);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     overflow: hidden;
     display: none;
@@ -159,14 +187,31 @@ body {
 .mention-item {
     padding: 10px 15px;
     cursor: pointer;
-    color: #acacac;
+    color: var(--text-secondary);
     font-size: 14px;
 }
 
 .mention-item:hover,
 .mention-item.active {
-    background-color: #11112e;
-    color: #fff;
+    background-color: var(--border-color);
+}
+
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease, border-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--border-color);
 }
 
 @keyframes fadeIn {
