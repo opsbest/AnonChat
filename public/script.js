@@ -95,12 +95,12 @@ function appendMessage({ callsign, text, ts }) {
 
 socket.on('welcome', ({ callsign }) => {
   myCallsign = callsign;
-  inputEl.placeholder = `${callsign} adıyla mesaj gönder`
-  appendSystem(`Kanala ${callsign} olarak bağlandın.`);
+  inputEl.placeholder = `send a message as ${callsign}`
+  appendSystem(`Connected to the channel as ${callsign}.`);
 });
 
 socket.on('presence', ({ onlineCount }) => {
-  onlineCountEl.textContent = `${onlineCount} çevrimiçi`;
+  onlineCountEl.textContent = `${onlineCount} online`;
 });
 
 socket.on('userlist', ({ users }) => {
